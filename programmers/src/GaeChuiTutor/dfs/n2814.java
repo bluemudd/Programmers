@@ -13,7 +13,7 @@ class n2814
 {
     static Stack<Integer> stack;
     static boolean [] visited;
-    static int longCount = 0;
+    static int longCount;
     static ArrayList<Integer> [] path ;
     public static void main(String args[]) throws IOException
     {
@@ -27,6 +27,7 @@ class n2814
             int N = Integer.parseInt(st.nextToken());
             int M = Integer.parseInt(st.nextToken());
             path = new ArrayList [N];
+            longCount = 0;
             for(int i =0; i<N; i++){
                 path[i] = new ArrayList();
             }
