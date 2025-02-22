@@ -85,8 +85,34 @@ public class StreamMidePrac1 {
 //                .distinct()
 //                .mapToInt(Integer::intValue)
 //                .average();
+//        문제 1: 주어진 숫자 리스트에서 짝수인 숫자들의 제곱 값을 오름차순으로 정렬하여 출력하세요.
+        List<Integer> numbers = Arrays.asList(3, 2, 6, 8, 1, 5, 4, 10);
+        numbers.stream().filter(a -> a % 2 == 0)
+                .map(a -> a*a)
+                .sorted()
+                .forEach(System.out::println);
+//        문제 2: 주어진 문자열 리스트에서 각 문자열의 첫 번째 문자가 'A'인 문자열만 필터링하고, 그 리스트의 크기를 구하세요.
+        List<String> words = Arrays.asList("Apple", "Banana", "Avocado", "Cherry", "Apricot");
+        long count = words.stream().filter(a -> a.startsWith("A"))
+                .count();
+        System.out.println(count);
 
+//        문제 3: 주어진 숫자 리스트에서 짝수와 홀수의 합을 각각 구하세요.
+        List<Integer> numbers1 = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
+        int evenSum = numbers1.stream()
+                .filter(n -> n % 2 ==0)
+                .reduce(0, (a,b) -> a+b);
+        int oddSum = numbers1.stream()
+                .filter(n -> n % 2 >0)
+                .reduce(0, (a,b) -> a+b);
+        System.out.println( evenSum +","+oddSum);
+//        문제 5: 주어진 숫자 리스트에서 최대값과 최소값을 구하고, 그 차이를 계산하세요.
+
+        List<Integer> numbers2 = Arrays.asList(10, 15, 30, 5, 25, 40, 60);
+        Optional<Integer> max = numbers2.stream()
+                        .max((a,b) -> Integer.compare(a,b));
+        System.out.println(max.get());
     }
     static class Student {
         String name;
