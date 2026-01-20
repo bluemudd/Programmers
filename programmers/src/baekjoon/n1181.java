@@ -22,9 +22,7 @@ public class n1181 {
         words.sort(Comparator.comparing(String::length)
                 .thenComparing(Comparator.naturalOrder()));
 
-        for(int i = 0; i< words.size(); i++){
-            System.out.println(words.get(i));
-        }
+        words.forEach(System.out::println);
 
     }
 }
